@@ -1,0 +1,109 @@
+.Auth{
+  display: inline-block;
+  background-color: #222;
+  width:100%;
+  min-width: 400px;
+  min-height: 140px;
+  border: 3px solid #f4511e;
+}
+
+.warning{
+  color: red;
+  transition: 0.5s;
+}
+
+.signupForm{
+  float: left;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button.back span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.button.back:hover span {
+  padding-left: 25px;
+}
+
+.button.back:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.button.next span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button.next:hover span {
+  padding-right: 25px;
+}
+
+.button.next:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.cart{
+  float: right;
+  display: inline-block;
+  background-color: white;
+  border: 2px solid #f4511e;
+  color: black;
+  text-align: left;
+  font-size: 28px;
+  width: 250px;
+  height: 68px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  vertical-align: middle;
+  text-align: center;
+  transition: 0.5s;
+}
+.cart:hover{
+  background-color: #f4511e;
+  color: white;
+}
+
+
+.cart:active{
+  background-color: #4c1200;
+  color: white;
+}
+
+
+
+input {
+    padding: 12px 20px;
+    margin: 5px;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    font-size: 14px;
+}
+
+input:focus {
+    border: 3px solid #f4511e;
+}
+
+input.zoom:focus{
+  font-size: 18px;
+}

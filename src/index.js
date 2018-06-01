@@ -1,5 +1,12 @@
 import React from 'react';
-import { render } from 'react-dom';
-import App from './components/App';
+import ReactDOM from 'react-dom';
+import './assets/css/index.css';
+import { Provider } from 'react-redux';
+import router from './router';
+import store from './store.js'
+require('es6-promise').polyfill();
+// import registerServiceWorker from './registerServiceWorker';
 
-render(<App name='World' />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>{router}</Provider>,
+  document.getElementById('root'));

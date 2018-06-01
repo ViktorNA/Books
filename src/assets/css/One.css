@@ -1,0 +1,128 @@
+.oneBook{
+  display: table-cell;
+  width: 100%;
+  padding: 0.5%;
+  min-width: 400px;
+}
+
+.divDescription{
+  min-width: 190px;
+}
+
+
+.backButton {
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: left;
+  font-size: 28px;
+  width: 100%;
+  height: 68px;
+  transition: all 0.5s;
+  cursor: pointer;
+  vertical-align:middle;
+}
+
+.backButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.backButton span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.backButton:hover span {
+  padding-left: 25px;
+}
+
+.backButton:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+h5{
+  font-size: 28px;
+}
+
+
+.notify-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  align-content: flex-start;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.notify-item {
+  width: 250px;
+  margin: 5px 10px;
+  color: #FFF;
+  border-radius: 5px;
+}
+
+.notify-item:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 10px 0 rgb(15, 15, 15);
+}
+
+.notify-item > p {
+  font-family: 'Lora', serif;
+  margin: 10px;
+  opacity: .8;
+}
+
+.notify-item.success {
+  background-color: rgba(81, 163, 81, 0.4);
+}
+
+.notify-item.error {
+  background-color: rgba(203, 100, 94, 0.8);
+}
+
+.notify-item.info {
+  background-color: rgba(33, 150, 243, 0.8);
+}
+
+.notify-title {
+  font-weight: 700;
+}
+
+.wrapper {
+	display: block;
+	float: right;
+	transition: width .2s;
+}
+
+.wrapper .image{
+  display: block;
+  float: left;
+  width: 30%;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.oneBook img{
+  display: block;
+  width: 100%;
+  float: left;
+}
+
+p span{
+  font-weight: bold;
+}
+
+.buy{
+  margin-left: 0px;
+}

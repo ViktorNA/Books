@@ -1,0 +1,98 @@
+.divAll{
+  display: block;
+  padding: 5px;
+  min-width: 450px;
+  margin-left: 310px;
+}
+
+.product-wrapper {
+  margin-top: 5px;
+	display: block;
+	width: 100%;
+	float: left;
+	transition: width .2s;
+}
+
+
+@media only screen and (min-width: 768px) {
+	.product-wrapper {
+		width: 50%;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	.product-wrapper {
+		width: 33.333%;
+	}
+}
+
+.product {
+	display: block;
+	border: 1px solid #b5e9a7;
+	border-radius: 3px;
+	position: relative;
+	background: #fff;
+	margin: 0 20px 20px 0;
+	text-decoration: none;
+	color: #474747;
+	z-index: 0;
+	height: auto;
+}
+
+.products {
+	list-style: none;
+}
+
+.product-photo {
+	position: relative;
+	padding-bottom: 100%;
+	overflow: hidden;
+}
+
+.product-photo img {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	max-width: 400px;
+	height: 100%;
+	margin: auto;
+	transition: transform .4s ease-out;
+}
+
+.product:hover .product-photo img {
+	transform: scale(1.1);
+}
+
+.product p {
+	position: relative;
+	margin: 5px;
+	font-size: 1em;
+	line-height: 1.4em;
+	height: 2.8em;
+	overflow: hidden;
+}
+
+.product p:after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 4.2em;
+	height: 1.6em;
+	background: linear-gradient(to left top, #fff, rgba(255, 255, 255, 0));
+}
+
+span.red{
+  color: red;
+}
+
+span.green{
+  color: green;
+}
+
+span.black{
+  color: blue;
+}
