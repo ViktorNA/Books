@@ -256,7 +256,7 @@ class App extends Component {
         <br></br>
           <button className="button zoom Search" onClick={this.searchSubmitted}><span>Search</span></button>
         <br></br>
-          <button className="button zoom Clear" onClick={this.searchClear}><span>Clear</span></button>
+          <button className="button zoom Clear" onClick={this.searchClear}><span>Cleazr</span></button>
         <br></br>
 
         </div>

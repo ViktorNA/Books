@@ -4,8 +4,10 @@
   "description": "an example for deploying a React + NodeJS app to Heroku",
   "main": "server.js",
   "scripts": {
+    "client": "react-scripts start",
+    "server": "nodemon server.js",
     "build": "webpack --config webpack.prod.config.js",
-    "dev": "webpack-dev-server --hot --inline",
+    "dev": "concurrently -r --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "lint": "eslint src/**",
     "lint:watch": "esw -w src/**",
     "review": "npm run lint && npm test",
