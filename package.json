@@ -11,8 +11,8 @@
     "lint": "eslint src/**",
     "lint:watch": "esw -w src/**",
     "review": "npm run lint && npm test",
-    "start": "npm run build && NODE_ENV=production node server.js",
-    "test":"jest src/**",
+    "start": "npm run build && NODE_ENV=production nodemon server.js",
+    "test": "jest src/**",
     "test:watch": "jest src/** --watch",
     "test:watchAll": "jest src/** --watchAll",
     "test:coverage:report": "open coverage/lcov-report/index.html"
@@ -37,6 +37,7 @@
     "mongodb": "^3.1.0-beta4",
     "node-sass": "^4.5.3",
     "node-uuid": "^1.4.8",
+    "nodemon": "^1.17.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
