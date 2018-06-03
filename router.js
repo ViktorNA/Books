@@ -91,6 +91,10 @@ function searchRequestConstr(req) {
 }
 
 module.exports = function(passport){
+	router.get('/', function(req, res) {
+    	// Display the Login page with any flash message, if any
+		res.sendfile('/dist/index.html');
+	});
 
 
 	router.get('/login', function(req, res) {
