@@ -1,6 +1,6 @@
 var LocalStrategy   = require('passport-local').Strategy;
 const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb://admin:paror@ds237620.mlab.com:37620/books2db?ReplicaSet=rs-ds237620";
+const url = "mongodb://admin:paror123@ds237620.mlab.com:37620/books2db?ReplicaSet=rs-ds237620";
 const bcrypt = require('bcrypt');
 
 
