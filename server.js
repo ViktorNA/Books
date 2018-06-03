@@ -8,7 +8,7 @@ const router = express.Router();
 const port = process.env.PORT || 5000;
 
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use('/', function(){
+app.get('/', function(){
 	res.sendfile("./dist/index.html")
 }
 )
