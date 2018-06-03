@@ -1,5 +1,5 @@
 .App {
-  display: table-cell;
+  display: flex;
   text-align: center;
   width: 300px;
   border-right: 3px solid #f4511e;
@@ -18,7 +18,7 @@
   height: 68px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
+  margin: 5px 5px 5px 0px;
   vertical-align: middle;
   text-align: center;
 }
@@ -31,8 +31,7 @@
 }
 
 
-.zoom:hover span {
-  font-size: 32px;
+.zoom:hover  {
 }
 
 

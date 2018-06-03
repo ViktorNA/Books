@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { withRouter } from "react-router-dom";
 import './assets/css/App.css';
 import store from './store.js';
 import Notifications, {notify} from 'react-notify-toast';
@@ -48,7 +47,7 @@ class App extends Component {
   callApi(params, first, last) {
     params.set('first', first);
     params.set('last', last);
-    return axios.post(this.state.url, params);
+    return axios.post("/news", params);
 
   };
 
@@ -105,14 +104,11 @@ class App extends Component {
     params.set('coast2', this.state.bookCoast2);
     this.setState({params: params});
     this.setState({first: 0});
-    this.props.history.push('/')
+    this.props.history.push('/');
+    console.log('search submitted');
     this.callApi(params, 0, this.state.last)
         .then(
           (response1) => {
-            if (response1 == "empty") {
-              notify.show("Nothing found!", "warning", 3000);
-              return 0;
-            }
             this.stateSetter(response1);
           }
         );
@@ -209,7 +205,7 @@ class App extends Component {
 
   render() {
       return (
-        <div class="App">
+        <div className="App">
         <Notifications />
           <form onSubmit={this.searchSubmitted}>
             <label>
@@ -252,12 +248,12 @@ class App extends Component {
             <br></br>
               <input type="text" className="zoom" name="bookCoast2" value={this.state.bookCoast2} onChange={this.searchChanged} />
             </label>
+          <br></br>
+            <button className="button zoom Search" onClick={this.searchSubmitted}><span>Search</span></button>
+          <br></br>
+            <button className="button zoom Clear" onClick={this.searchClear}><span>Clear</span></button>
+          <br></br>
           </form>
-        <br></br>
-          <button className="button zoom Search" onClick={this.searchSubmitted}><span>Search</span></button>
-        <br></br>
-          <button className="button zoom Clear" onClick={this.searchClear}><span>Cleazr</span></button>
-        <br></br>
 
         </div>
       );

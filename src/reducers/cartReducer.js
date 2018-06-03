@@ -1,9 +1,3 @@
-
-const initialState = {
-  cart: []
-}
-
-
 var cartReducer = function(state = [], action) {
 
   switch (action.type) {

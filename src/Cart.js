@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import store from './store.js'
 import './assets/css/One.css'
 import Notifications, {notify} from 'react-notify-toast'

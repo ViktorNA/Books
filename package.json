@@ -8,14 +8,7 @@
     "server": "nodemon server.js",
     "build": "webpack --config webpack.prod.config.js",
     "dev": "concurrently -r --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "lint": "eslint src/**",
-    "lint:watch": "esw -w src/**",
-    "review": "npm run lint && npm test",
-    "start": "npm run build && NODE_ENV=production nodemon server.js",
-    "test": "jest src/**",
-    "test:watch": "jest src/** --watch",
-    "test:watchAll": "jest src/** --watchAll",
-    "test:coverage:report": "open coverage/lcov-report/index.html"
+    "start": "npm run build && NODE_ENV=production nodemon server.js"
   },
   "author": "",
   "license": "ISC",

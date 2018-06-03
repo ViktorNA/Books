@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import store from './store.js'
 import './assets/css/Auth.css'
-import { withRouter } from "react-router-dom";
 import Notifications, {notify} from 'react-notify-toast';
 import {loadState, saveState} from './localStorage';
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import store from './store.js'
-import { Router } from 'react-router';
 import "./assets/css/One.css"
 import "./assets/css/App.css"
 import { addBook, addComp } from './actions/actionTypes'
@@ -23,16 +22,19 @@ class One extends Component {
 
   componentDidMount(){
     axios.get(this.props.location.pathname)
-    .then(res => {
-      console.log(res);
-      this.setState({oneBook: res.data.book})
+    .then( res => {
+      console.log('one:');
+      console.log(res.data.book);
+      this.setState({
+        oneBook: res.data.book
+      })
     })
-    store.subscribe(this.updateAuth)
+    this.unsubscribe = store.subscribe(this.updateAuth);
     window.scrollTo(0,0);
   }
 
   componentWillUnmount(){
-    (unscribe => store.subscribe(this.updateAuth));
+    this.unsubscribe();
   }
 
   updateAuth(){
@@ -77,17 +79,17 @@ class One extends Component {
 
   render() {
     return (
-      <div class="oneBook">
-      <div class="wrapper">
+      <div className="oneBook">
+      <div className="wrapper">
         <Notifications />
-        <button class="backButton" onClick={this.goback}> <span> Back</span> </button>
-        <button class="button zoom buy" onClick={this.addToCart}><span>Buy</span></button>
-        <button class="button zoom" onClick={this.toCompare}><span>Compare<sup>{store.getState().compare.length}</sup></span></button>
+        <button className="backButton" onClick={this.goback}> <span> Back</span> </button>
+        <button className="button zoom buy" onClick={this.addToCart}><span>Buy</span></button>
+        <button className="button zoom" onClick={this.toCompare}><span>Compare<sup>{store.getState().compare.length}</sup></span></button>
         <br></br>
-        <div class="image">
+        <div className="image">
           <img alt='' src={this.state.oneBook.picture} />
         </div>
-        <div class="divDescription">
+        <div className="divDescription">
           <p><span>Description:</span> {this.state.oneBook.description}</p>
           <p><span>Bookname:</span> {this.state.oneBook.name}</p>
           <p><span>Author:</span> {this.state.oneBook.author}</p>

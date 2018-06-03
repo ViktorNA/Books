@@ -44,9 +44,6 @@ function searchRequestConstr(req) {
 	    console.log('true');
 	    element.author = {_text: req.body.search};
 	  }
-	  else {
-	    element.author = {_text: ''};
-	  }
 	  if(req.body.bookName)
 	    element.name = {_text: req.body.bookName};
 
@@ -98,7 +95,7 @@ module.exports = function(passport){
 	/* GET login page. */
 	router.get('/', function(req, res) {
     	// Display the Login page with any flash message, if any
-		res.sendfile('index.html');
+		res.sendfile('/dist/index.html');
 	});
 
 	router.get('/login', function(req, res) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Route} from 'react-router';
 import { BrowserRouter, Switch } from 'react-router-dom'
 import './assets/css/index.css'
 import App from './App';
@@ -11,7 +11,7 @@ import Compare from './Compare'
 
 export default (
   <BrowserRouter>
-  <div class="body">
+  <div className="body">
   <Route path='/' component={Auth}/>
   <Route path='/' component={App} />
   <Switch>

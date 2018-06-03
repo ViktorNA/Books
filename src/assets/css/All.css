@@ -1,8 +1,9 @@
 .divAll{
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
   padding: 5px;
-  min-width: 450px;
-  margin-left: 310px;
+  min-width: 350px;
+  padding-left: 10px;
 }
 
 .product-wrapper {
@@ -39,8 +40,9 @@
 	height: auto;
 }
 
-.products {
+.products .button{
 	list-style: none;
+  margin-left: 5px;
 }
 
 .product-photo {
@@ -95,4 +97,15 @@ span.green{
 
 span.black{
   color: blue;
+}
+
+.divButtons{
+  display: inline-block;
+  width: 100%;
+}
+
+.divCompare{
+  display: inline-block;
+  margin: 5px;
+
 }
