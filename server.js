@@ -8,7 +8,10 @@ const router = express.Router();
 const port = process.env.PORT || 5000;
 
 app.use(express.static(path.join(__dirname, 'dist')));
-
+app.use('/', function(){
+	res.sendfile("./dist/index.html")
+}
+)
 
 app.use(session({secret: 'abc'}));
 
