@@ -1,7 +1,8 @@
-.body {
+.root {
   width: 100%;
   display: inline-block;
   padding: 0px;
   margin: 0px;
+  border: solid 1px black;
   font-family: sans-serif;
 }

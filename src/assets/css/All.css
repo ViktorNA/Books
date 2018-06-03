@@ -40,6 +40,10 @@
 	height: auto;
 }
 
+.products{
+  width: 100%;
+}
+
 .products .button{
 	list-style: none;
   margin-left: 5px;

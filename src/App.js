@@ -210,52 +210,52 @@ class App extends Component {
       return (
         <div className="App">
         <Notifications />
-          <div>
-            <label>
-              bookName:
-            <br></br>
-              <input type="text" className="zoom" name="bookName" value={this.state.bookName} onChange={this.searchChanged} />
-            </label>
-          <br></br>
+          <div className="searchForm">
+                <label>
+                  bookName:
+                <br></br>
+                  <input type="text" className="" name="bookName" value={this.state.bookName} onChange={this.searchChanged} />
+                </label>
+              <br></br>
 
-            <label>
-              author:
-            <br></br>
-              <input type="text" className="zoom" name="authorName" value={this.state.authorName} onChange={this.searchChanged} />
-            </label>
-          <br></br>
+                <label>
+                  author:
+                <br></br>
+                  <input type="text" className=" " name="authorName" value={this.state.authorName} onChange={this.searchChanged} />
+                </label>
+              <br></br>
 
-            <label>
-              Year from:
-            <br></br>
-              <input type="text" className="zoom" name="bookYear1" value={this.state.bookYear1} onChange={this.searchChanged} />
-            </label>
-          <br></br>
+                <label>
+                  Year from:
+                <br></br>
+                  <input type="text" className=" " name="bookYear1" value={this.state.bookYear1} onChange={this.searchChanged} />
+                </label>
+              <br></br>
 
-            <label>
-              Year by:
-            <br></br>
-              <input type="text" className="zoom" name="bookYear2" value={this.state.bookYear2} onChange={this.searchChanged} />
-            </label>
-          <br></br>
+                <label>
+                  Year by:
+                <br></br>
+                  <input type="text" className=" " name="bookYear2" value={this.state.bookYear2} onChange={this.searchChanged} />
+                </label>
+              <br></br>
 
-            <label>
-              Coast from:
-            <br></br>
-              <input type="text" className="zoom" name="bookCoast1" value={this.state.bookCoast1} onChange={this.searchChanged} />
-            </label>
-          <br></br>
+                <label>
+                  Coast from:
+                <br></br>
+                  <input type="text" className="zoom" name="bookCoast1" value={this.state.bookCoast1} onChange={this.searchChanged} />
+                </label>
+              <br></br>
 
-            <label>
-              coast by:
-            <br></br>
-              <input type="text" className="zoom" name="bookCoast2" value={this.state.bookCoast2} onChange={this.searchChanged} />
-            </label>
-          <br></br>
-            <button className="button zoom Search" onClick={this.searchSubmitted}><span>Search</span></button>
-          <br></br>
-            <button className="button zoom Clear" onClick={this.searchClear}><span>Clear</span></button>
-          <br></br>
+                <label>
+                  coast by:
+                <br></br>
+                  <input type="text" className="zoom" name="bookCoast2" value={this.state.bookCoast2} onChange={this.searchChanged} />
+                </label>
+              <br></br>
+                <button className="button zoom Search" onClick={this.searchSubmitted}><span>Search</span></button>
+              <br></br>
+                <button className="button zoom Clear" onClick={this.searchClear}><span>Clear</span></button>
+              <br></br>
           </div>
 
         </div>
