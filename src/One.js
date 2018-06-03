@@ -21,6 +21,7 @@ class One extends Component {
 
 
   componentDidMount(){
+    store.dispatch(changeLoad(true))
     axios.get(this.props.location.pathname)
     .then( res => {
       console.log('one:');
@@ -44,7 +45,7 @@ class One extends Component {
   }
 
   addToCart(){
-    if(this.state.oneBook.store){
+    if(!this.state.oneBook.store){
       let book ={
         id: this.state.oneBook.id,
         name: this.state.oneBook.name,

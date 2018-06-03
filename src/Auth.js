@@ -240,26 +240,38 @@ class Auth extends Component {
 
 
   render() {
-    if(!this.state.isAuthenticated)
-      return (
+          if(!this.state.isAuthenticated)
+                {
+                  console.log(document.documentElement.clientWidth);
+                  if (document.documentElement.clientWidth>1100) {
+                      return (
+                      <div className="Auth">
+                        {this.signupForm()}
+                        {this.showCart()}
+                      </div>
+                    )
+                  }
+                  else {
+                    return (
+                      <div className="Auth">
+                        <button className="button zoom log" onClick={this.signout} ><span>Log</span></button>
+                        {this.showCart()}
+                      </div>
+                    );
+                  }
+              }
+          else {
+            return (
+            <div className="Auth">
+              <h1>You are logged</h1>
+              <button className="button zoom signout" onClick={this.signout} ><span>signout</span></button>
 
-        <div className="Auth">
-          {this.signupForm()}
-          {this.showCart()}
-        </div>
-      )
-    else {
-      return (
-      <div className="Auth">
-        <h1>You are logged</h1>
-        <button className="button zoom signout" onClick={this.signout} ><span>signout</span></button>
+              {this.showCart()}
 
-        {this.showCart()}
-
-      </div>
-      )
-    }
-  }
+            </div>
+            )
+          }
+        }
 }
 
 export default Auth;

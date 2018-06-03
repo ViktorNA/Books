@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import store from './store.js'
 import './assets/css/All.css'
+import {changeLoad} from './actions/actionTypes'
 
 class Compare extends Component {
   constructor(props){
@@ -59,11 +60,11 @@ class Compare extends Component {
 
   }
 
-  deleteItem(event){
+  deleteItem(id){
     let i =0;
-    console.log(event.target.id);
+    console.log(id);
     for(i=0 ;i<this.state.books.length; i++){
-      if(this.state.books[i].numb==event.target.id)
+      if(this.state.books[i].numb==id)
         break;
     }
     console.log('i ' + i);
@@ -90,6 +91,10 @@ class Compare extends Component {
     this.props.history.goBack();
   }
 
+  showOneBook(id){
+      store.dispatch(changeLoad(true));
+      this.props.history.push("/one/" + id);
+  }
 
   render() {
       return (
@@ -112,8 +117,8 @@ class Compare extends Component {
                   </div>
                   <p className="CompareText"><span>Price:</span> {this.comparePrices(book)}</p>
                   <p className="CompareText"><span>Year:</span> {this.compareYear(book)}</p>
-                  <button  id={book.item.id} key={book.item.id} onClick={this.showOneBook} className="button zoom"><span>More</span></button>
-                  <button className="button zoom delete" id={book.numb} onClick={this.deleteItem}><span>Delete</span></button>
+                  <button  id={book.item.id} key={book.item.id} onClick={()=>this.showOneBook(book.item.id)} className="button zoom"><span>More</span></button>
+                  <button className="button zoom delete" id={book.numb} onClick={()=>this.deleteItem(book.numb)}><span>Delete</span></button>
 
                   </div>
                 </div>)}

@@ -91,6 +91,10 @@ function searchRequestConstr(req) {
 }
 
 module.exports = function(passport){
+	router.get('/cart', function(){
+	res.sendfile("./dist/index.html")
+		}
+	)
 
 	/* GET login page. */
 	router.get('/', function(req, res) {

@@ -47,12 +47,12 @@ console.log(this.state.cart);
   updateAuth(){
   }
 
-  deleteItem(event){
+  deleteItem(id){
     let i =0;
     console.log(this.state.cart[i].numb);
-    console.log(event.target.id);
+    console.log(id);
     for(i=0 ;i<this.state.cart.length; i++){
-      if(this.state.cart[i].numb==event.target.id)
+      if(this.state.cart[i].numb==id)
         break;
     }
     console.log('i ' + i);
@@ -73,7 +73,7 @@ console.log(this.state.cart);
             <p> {book.item.name} </p>
             <p> {book.item.author} </p>
             <p> {book.item.price} </p>
-            <button className="button zoom delete" id={book.numb} onClick={this.deleteItem}><span>Delete</span></button>
+            <button className="button zoom delete" key={book.numb} onClick={()=>this.deleteItem(book.numb)}><span>Delete</span></button>
             </div>
       )
     )
