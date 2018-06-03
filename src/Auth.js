@@ -50,6 +50,15 @@ class Auth extends Component {
         cart: store.getState().cart
       })
   });
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v3.0&appId=175276473293976&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
   }
 
   componentWillUnmount(){
@@ -255,6 +264,7 @@ class Auth extends Component {
                     return (
                       <div className="Auth">
                         <button className="button zoom log" onClick={this.signout} ><span>Log</span></button>
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
                         <button className="button zoom log" onClick={()=>this.props.history.push("/login/facebook")} ><span>Facebook</span></button>
                         {this.showCart()}
                       </div>
