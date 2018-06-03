@@ -255,6 +255,7 @@ class Auth extends Component {
                     return (
                       <div className="Auth">
                         <button className="button zoom log" onClick={this.signout} ><span>Log</span></button>
+                        <button className="button zoom log" onClick={()=>this.props.history.push("/login/facebook"))} ><span>Facebook</span></button>
                         {this.showCart()}
                       </div>
                     );

@@ -3,7 +3,7 @@ var router = express.Router();
 
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
-const  url = "mongodb://admin:paror123@ds237620.mlab.com:37620/books2db?ReplicaSet=rs-ds237620";;
+const  url = "mongodb://admin:paror123@ds237620.mlab.com:37620/books2db?ReplicaSet=rs-ds237620";
 var searchres;
 const ObjectId = require('mongodb').ObjectID
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -91,16 +91,7 @@ function searchRequestConstr(req) {
 }
 
 module.exports = function(passport){
-	router.get('/cart', function(){
-	res.sendfile("./dist/index.html")
-		}
-	)
 
-	/* GET login page. */
-	router.get('/', function(req, res) {
-    	// Display the Login page with any flash message, if any
-		res.sendfile('/dist/index.html');
-	});
 
 	router.get('/login', function(req, res) {
     	// Display the Login page with any flash message, if any
@@ -114,10 +105,17 @@ module.exports = function(passport){
 		failureFlash : true
 	}, ));
 
-	/* GET Registration Page */
-	// router.get('/signup', function(req, res){
-	// 	res.render('register',{message: req.flash('message')});
-	// });
+	router.get('/login/facebook',
+		passport.authenticate('facebook', { scope : 'email' }
+	));
+
+	// handle the callback after facebook has authenticated the user
+	router.get('/login/facebook/callback',
+		passport.authenticate('facebook', {
+			successRedirect : '/home',
+			failureRedirect : '/'
+		})
+	);
 
 	/* Handle Registration POST */
 	router.post('/signup', passport.authenticate('signup', {
@@ -141,9 +139,10 @@ module.exports = function(passport){
 
 
 	router.post('/news', urlencodedParser, function (req, res) {
+		console.log('post');
 	  let element = searchRequestConstr(req);
 	  if(element){
-	    MongoClient.connect(url, function(err, client){
+	    MongoClient.connect(url, { useNewUrlParser: true }, function(err, client){
 					  if (err) {
 					  	throw err;
 					  }
@@ -209,10 +208,11 @@ module.exports = function(passport){
 
 
 	router.get('/one/:id', urlencodedParser, function(req, res){
-	  MongoClient.connect(url, function(err, client){
+	  MongoClient.connect(url, { useNewUrlParser: true }, function(err, client){
 	        var db = client.db();
 	        db.collection('books').findOne({_id: ObjectId(req.params.id)} )
 	        .then(response => {
+						console.log(response);
 	          res.send({book: getValidResponse(response)});
 	          client.close();
 	        }) ;

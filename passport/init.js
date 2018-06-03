@@ -3,6 +3,7 @@ var signup = require('./signup');
 const ObjectId = require('mongodb').ObjectID
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://admin:paror123@ds237620.mlab.com:37620/books2db?ReplicaSet=rs-ds237620";
+var facebook = require('./facebook.js');
 
 module.exports = function(passport){
 
@@ -23,7 +24,7 @@ module.exports = function(passport){
           });
     });
 
-    // Setting up Passport Strategies for Login and SignUp/Registration
+    facebook(passport);
     login(passport);
     signup(passport)
 
