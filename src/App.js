@@ -214,28 +214,28 @@ class App extends Component {
                 <label>
                   bookName:
                 <br></br>
-                  <input type="text" className="" name="bookName" value={this.state.bookName} onChange={this.searchChanged} />
+                  <input type="text" className="zoom" name="bookName" value={this.state.bookName} onChange={this.searchChanged} />
                 </label>
               <br></br>
 
                 <label>
                   author:
                 <br></br>
-                  <input type="text" className=" " name="authorName" value={this.state.authorName} onChange={this.searchChanged} />
+                  <input type="text" className="zoom" name="authorName" value={this.state.authorName} onChange={this.searchChanged} />
                 </label>
               <br></br>
 
                 <label>
                   Year from:
                 <br></br>
-                  <input type="text" className=" " name="bookYear1" value={this.state.bookYear1} onChange={this.searchChanged} />
+                  <input type="text" className="zoom" name="bookYear1" value={this.state.bookYear1} onChange={this.searchChanged} />
                 </label>
               <br></br>
 
                 <label>
                   Year by:
                 <br></br>
-                  <input type="text" className=" " name="bookYear2" value={this.state.bookYear2} onChange={this.searchChanged} />
+                  <input type="text" className="zoom" name="bookYear2" value={this.state.bookYear2} onChange={this.searchChanged} />
                 </label>
               <br></br>
 
