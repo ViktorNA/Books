@@ -3,7 +3,7 @@ import axios from 'axios';
 import store from './store.js'
 import "./assets/css/One.css"
 import "./assets/css/App.css"
-import { addBook, addComp } from './actions/actionTypes'
+import { addBook, addComp, changeLoad } from './actions/actionTypes'
 import Notifications, {notify} from 'react-notify-toast'
 
 class One extends Component {
@@ -27,7 +27,8 @@ class One extends Component {
       console.log(res.data.book);
       this.setState({
         oneBook: res.data.book
-      })
+      });
+      store.dispatch(changeLoad(false))
     })
     this.unsubscribe = store.subscribe(this.updateAuth);
     window.scrollTo(0,0);
@@ -78,6 +79,7 @@ class One extends Component {
 
 
   render() {
+   if (!store.getState().isLoad) {
     return (
       <div className="oneBook">
       <div className="wrapper">
@@ -100,7 +102,15 @@ class One extends Component {
        </div>
        </div>
        </div>
-    )
+    );
+  }
+  else {
+    return (
+      <div className="divAll">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
   }
 }
 

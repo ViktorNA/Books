@@ -15,3 +15,10 @@ export const addComp = item => {
     item
   }
 }
+
+export const changeLoad = isLoad => {
+  return {
+    type: 'CHANGE_LOAD',
+    isLoad
+  }
+}

@@ -3,6 +3,7 @@ import axios from 'axios';
 import './assets/css/App.css';
 import store from './store.js';
 import Notifications, {notify} from 'react-notify-toast';
+import { changeLoad } from './actions/actionTypes'
 
 
 
@@ -106,10 +107,12 @@ class App extends Component {
     this.setState({first: 0});
     this.props.history.push('/');
     console.log('search submitted');
+    store.dispatch(changeLoad(true));
     this.callApi(params, 0, this.state.last)
         .then(
           (response1) => {
             this.stateSetter(response1);
+            store.dispatch(changeLoad(false))
           }
         );
   }
@@ -207,7 +210,7 @@ class App extends Component {
       return (
         <div className="App">
         <Notifications />
-          <div >
+          <div>
             <label>
               bookName:
             <br></br>
