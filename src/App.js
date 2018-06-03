@@ -207,7 +207,7 @@ class App extends Component {
       return (
         <div className="App">
         <Notifications />
-          <form onSubmit={this.searchSubmitted}>
+          <form >
             <label>
               bookName:
             <br></br>
