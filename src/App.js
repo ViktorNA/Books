@@ -207,7 +207,7 @@ class App extends Component {
       return (
         <div className="App">
         <Notifications />
-          <form >
+          <div >
             <label>
               bookName:
             <br></br>
@@ -253,7 +253,7 @@ class App extends Component {
           <br></br>
             <button className="button zoom Clear" onClick={this.searchClear}><span>Clear</span></button>
           <br></br>
-          </form>
+          </div>
 
         </div>
       );
