@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route} from 'react-router';
-import { BrowserRouter, Switch } from 'react-router-dom'
+import { HashRouter, BrowserRouter, Switch } from 'react-router-dom'
 import './assets/css/index.css'
 import App from './App';
 import Auth from './Auth';
@@ -12,7 +12,7 @@ import Reg from './Reg';
 import AuthNew from './AuthNew';
 
 export default (
-  <BrowserRouter>
+  <HashRouter>
   <div className="body">
   <Route path='/' component={AuthNew}/>
   <Route path='/' component={App} />
@@ -25,5 +25,5 @@ export default (
   </Switch>
 
   </div>
-</BrowserRouter>
+</HashRouter>
 );
