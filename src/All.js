@@ -35,7 +35,6 @@ class All extends Component {
 
   showOneBook(id){
       console.log(id);
-      store.dispatch(changeLoad(true));
       this.props.history.push("/one/" + id);
   }
 
