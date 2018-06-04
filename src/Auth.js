@@ -45,24 +45,17 @@ class Auth extends Component {
     this.isAuthenticated();
     this.unsubscribe = store.subscribe(() => {
       saveState(store.getState());
-      console.log(store.getState());
       this.setState({
         cart: store.getState().cart
       })
   });
-      (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v3.0&appId=175276473293976&autoLogAppEvents=1';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+
 
 
   }
 
   componentWillUnmount(){
-    this.unscribe();
+    this.unsubscribe();
   }
 
   searchChanged(event) {
@@ -217,7 +210,7 @@ class Auth extends Component {
 
   showCart(){
       return (
-          <button className="cart" onClick={this.goToCart}><span>Cart ({this.coast()}$)</span></button>
+          <button className="cart" onClick={() => this.props.history.push("/cart/")}><span>Cart ({this.coast()}$)</span></button>
 
       );
     }
@@ -248,6 +241,7 @@ class Auth extends Component {
   }
 
 
+
   render() {
           if(!this.state.isAuthenticated)
                 {
@@ -264,8 +258,7 @@ class Auth extends Component {
                     return (
                       <div className="Auth">
                         <button className="button zoom log" onClick={this.signout} ><span>Log</span></button>
-                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-                        <button className="button zoom log" onClick={()=>this.props.history.push("/login/facebook")} ><span>Facebook</span></button>
+                        <button className="button zoom log" onClick={() => this.props.history.push("/reg")} ><span>Facebook</span></button>
                         {this.showCart()}
                       </div>
                     );
