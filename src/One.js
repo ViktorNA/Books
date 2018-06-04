@@ -11,7 +11,8 @@ class One extends Component {
     super(props);
     this.state={
       oneBook: {},
-      isAuthenticated: false
+      isAuthenticated: false,
+      isLoad: true
     };
     this.goback = this.goback.bind(this);
     this.addToCart = this.addToCart.bind(this);
@@ -29,7 +30,10 @@ class One extends Component {
       this.setState({
         oneBook: res.data.book
       });
-      store.dispatch(changeLoad(false))
+      store.dispatch(changeLoad(false));
+      this.setState({
+        isLoad: false
+      })
     })
     this.unsubscribe = store.subscribe(this.updateAuth);
     window.scrollTo(0,0);
@@ -40,7 +44,6 @@ class One extends Component {
   }
 
   updateAuth(){
-    console.log('Auth has updated');
     this.setState({isAuthenticated: store.getState().auth})
   }
 
@@ -80,7 +83,7 @@ class One extends Component {
 
 
   render() {
-   if (!store.getState().isLoad) {
+   if (!this.state.isLoad) {
     return (
       <div className="oneBook">
       <div className="wrapper">
