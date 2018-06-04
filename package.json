@@ -27,6 +27,7 @@
     "es6-promise": "^4.2.4",
     "express": "^4.15.5",
     "express-session": "^1.15.6",
+    "firebase": "^5.0.4",
     "mongodb": "^3.1.0-beta4",
     "node-sass": "^4.5.3",
     "node-uuid": "^1.4.8",
