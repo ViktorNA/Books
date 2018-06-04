@@ -22,7 +22,6 @@ class One extends Component {
 
 
   componentDidMount(){
-    store.dispatch(changeLoad(true))
     axios.get(this.props.location.pathname)
     .then( res => {
       console.log('one:');
@@ -30,7 +29,6 @@ class One extends Component {
       this.setState({
         oneBook: res.data.book
       });
-      store.dispatch(changeLoad(false));
       this.setState({
         isLoad: false
       })
