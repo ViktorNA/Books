@@ -61,21 +61,25 @@ this.setState({
   showCart(){
     if(this.state.cart.length)
       return (
-        this.state.cart.map(book => <div onClick={()=> this.props.history.push("/one/" + book.item.id)} className="product-wrapper">
+        this.state.cart.map(book => <div className="product-wrapper">
             <div className="product">
-                <div className="product-main">
-                  <p>{book.item.name} - {book.item.author}</p>
-                </div>
-                <div className="product-photo">
-                  <img className="Left"  alt="No image" src={book.item.picture} />
-                </div>
-                <div className="product-main">
-                  <p> {book.item.name} </p>
-                  <p> {book.item.author} </p>
-                  <p> {book.item.price} </p>
-                </div>
-            <button className="button zoom delete" key={book.numb} onClick={()=>this.deleteItem(book.numb)}><span>Delete</span></button>
-            </div>
+                <button className="buttonDelete" key={book.numb} onClick={()=>this.deleteItem(book.numb)}><span>X</span></button>
+                  <div  onClick={()=> this.props.history.push("/one/" + book.item.id)}>
+                    <div className="product-main">
+                      <p>{book.item.name} - {book.item.author}</p>
+                    </div>
+                    <div className="product-photo">
+                      <img className="Left"  alt="No image" src={book.item.picture} />
+                    </div>
+                    <div className="product-main">
+                      <p> {book.item.name} </p>
+                      <p> {book.item.author} </p>
+                      <p> {book.item.price} </p>
+                    </div>
+                  </div>
+              </div>
+
+
         </div>
       )
     )

@@ -45,15 +45,13 @@
   width: 100%;
 }
 
-.products .button{
-	list-style: none;
-  margin-left: 5px;
-}
 
 .product-photo {
 	position: relative;
 	padding-bottom: 100%;
 	overflow: hidden;
+  width: 100%;
+  padding-bottom: 120%;
 }
 
 .product-photo img {
@@ -125,4 +123,35 @@ span.black{
   display: inline-block;
   margin: 5px;
 
+}
+
+.buttonDelete{
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  transition: all 0.5s;
+  z-index: 100;
+
+    display:block;
+    width:30px;
+    height:30px;
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    color:#f5f5f5;
+    text-decoration:none;
+    background: #464646;
+    font-size:15px;
+    font-weight:bold;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.buttonDelete:hover{
+  transition: all 0.5s;
+  transform: rotate(360deg);
+}
+
+
+.product:hover .buttonDelete{
+  opacity: 0.8;
 }
