@@ -108,12 +108,12 @@ class Compare extends Component {
           <div className="">
           <div className="products clearfix">
               {this.state.books.map(book => <div className="product-wrapper">
-                <div className="product">
+                <div onClick={()=> this.props.history.push("/one/" + book.item.id)} className="product">
                 <div className="product-main">
                   <p>{book.item.bookName} - {book.item.author}</p>
                 </div>
                   <div className="product-photo">
-                    <img className="Left" alt="No Image" onClick={()=> this.props.history.push("/one/" + book.item.id)} src={book.item.picture} />
+                    <img className="Left" alt="No Image" src={book.item.picture} />
                   </div>
                   <p className="CompareText"><span>Price:</span> {this.comparePrices(book)}</p>
                   <p className="CompareText"><span>Year:</span> {this.compareYear(book)}</p>

@@ -61,13 +61,13 @@ this.setState({
   showCart(){
     if(this.state.cart.length)
       return (
-        this.state.cart.map(book => <div className="product-wrapper">
-        {console.log(book)}
+        this.state.cart.map(book => <div onClick={()=> this.props.history.push("/one/" + book.item.id)} className="product-wrapper">
+            <div className="product">
                 <div className="product-main">
                   <p>{book.item.name} - {book.item.author}</p>
                 </div>
                 <div className="product-photo">
-                  <img className="Left" onClick={()=> this.props.history.push("/one/" + book.item.id)} alt="No image" src={book.item.picture} />
+                  <img className="Left"  alt="No image" src={book.item.picture} />
                 </div>
                 <div className="product-main">
                   <p> {book.item.name} </p>
@@ -76,6 +76,7 @@ this.setState({
                 </div>
             <button className="button zoom delete" key={book.numb} onClick={()=>this.deleteItem(book.numb)}><span>Delete</span></button>
             </div>
+        </div>
       )
     )
     return (
@@ -111,7 +112,9 @@ this.setState({
       <div className="divAll">
         <Notifications />
         <button className="backButton" onClick={this.props.history.goBack} ><span>Back</span></button>
-        {this.showCart()}
+        <div className="products clearfix">
+          {this.showCart()}
+        </div>
         <button className="button zoom" onClick={this.clearCart} ><span>Clear</span></button>
         <button className="button zoom" onClick={this.buyCart} ><span>Buy</span></button>
       </div>

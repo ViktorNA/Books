@@ -45,10 +45,10 @@ class All extends Component {
       <div className="divAll">
         <div className="products clearfix">
 
-            {this.state.books.map(book => <div className="product-wrapper">
+            {this.state.books.map(book => <div onClick={()=> this.showOneBook(book.id)} className="product-wrapper">
               <div className="product">
                 <div className="product-photo">
-                  <img className="Left" onClick={()=> this.showOneBook(book.id)} alt="No image" src={book.picture} />
+                  <img className="Left"  alt="No image" src={book.picture} />
                 </div>
                 <div className="product-main">
                   <p>{book.bookName} - {book.author}</p>

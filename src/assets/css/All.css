@@ -86,6 +86,9 @@ p{
 	overflow: hidden;
 }
 
+.product:hover{
+  cursor: pointer;
+}
 .product:hover p{
   color: blue;
 }
