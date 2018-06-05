@@ -8,16 +8,6 @@ var searchres;
 const ObjectId = require('mongodb').ObjectID
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-var isAuthenticated = function (req, res, next) {
-	// if user is authenticated in the session, call the next() to call the next request handler
-	// Passport adds this method to request object. A middleware is allowed to add properties to
-	// request and response object
-	if (req.isAuthenticated())
-		return next();
-	// if the user is not authenticated then redirect him to the login page
-	console.log('error');
-	res.redirect('/error');
-}
 
 var badres = [{
 	  description: {
@@ -90,53 +80,11 @@ function searchRequestConstr(req) {
 			return obj;
 }
 
-module.exports = function(passport){
-
-
-	router.get('/login', function(req, res) {
+module.exports = function(){
+	router.get('/', function(req, res) {
     	// Display the Login page with any flash message, if any
-		res.sendfile('auth.html');
+		res.sendfile('/dist/index.html');
 	});
-
-	/* Handle Login POST */
-	router.post('/login', passport.authenticate('login', {
-		successRedirect: '/home',
-		failureRedirect: '/error',
-		failureFlash : true
-	}, ));
-
-	router.get('/facebook',
-		passport.authenticate('facebook')
-	);
-
-	// handle the callback after facebook has authenticated the user
-	router.get('/login/facebook/callback',
-		passport.authenticate('facebook', {
-			successRedirect : '/home',
-			failureRedirect : '/'
-		})
-	);
-
-	/* Handle Registration POST */
-	router.post('/signup', passport.authenticate('signup', {
-		successRedirect: '/home',
-		failureRedirect: '/error',
-		failureFlash : true
-	}));
-
-	/* GET Home Page */
-	router.get('/home', isAuthenticated, function(req, res){
-		console.log('home');
-		res.send({answer: true})
-	});
-
-	/* Handle Logout */
-	router.get('/signout', function(req, res) {
-		req.logout();
-		res.redirect('/');
-	});
-
-
 
 	router.post('/news', urlencodedParser, function (req, res) {
 		console.log('post');
@@ -168,13 +116,14 @@ module.exports = function(passport){
 	  }
 	});
 
-	router.get('/rand', function (req, res) {
-	  MongoClient.connect(url, { useNewUrlParser: true }, function(err, client){
+	router.get('/news', function (req, res) {
+	  MongoClient.connect(url, function(err, client){
 	        var db = client.db('books2db');
-	        db.collection('books').find().skip(Math.random()*10000+2 ).limit(1).toArray()
+	        db.collection('books').find().skip(Math.random()*10000+2
+	      ).limit(5).toArray()
 	        .then(response => {
 	           if(response.length>0){
-	           res.send({book: response[0]});
+	           res.send({searchResult: response});
 	         }
 	         else{
 	           // res.render('news', {data: badres});
@@ -185,6 +134,13 @@ module.exports = function(passport){
 	    });
 	});
 
+
+
+	router.post('/test', urlencodedParser, function (req, res) {
+	  console.log('getted');
+	  console.log(req);
+	  res.send({test: req})
+	})
 
 	router.post('/one', urlencodedParser, function(req, res){
 	  MongoClient.connect(url, function(err, client){
