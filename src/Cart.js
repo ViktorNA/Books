@@ -116,11 +116,11 @@ this.setState({
       <div className="divAll">
         <Notifications />
         <button className="backButton" onClick={this.props.history.goBack} ><span>Back</span></button>
+        <button className="button zoom" onClick={this.clearCart} ><span>Clear</span></button>
+        <button className="button zoom" onClick={this.buyCart} ><span>Buy</span></button>
         <div className="products clearfix">
           {this.showCart()}
         </div>
-        <button className="button zoom" onClick={this.clearCart} ><span>Clear</span></button>
-        <button className="button zoom" onClick={this.buyCart} ><span>Buy</span></button>
       </div>
 
     )

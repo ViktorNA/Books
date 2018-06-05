@@ -52,7 +52,10 @@ class App extends Component {
   stateSetter(res){
     var books = [];
     this.setState({bookCount: res.data.searchResult[0].count});
-    console.log(res.data.searchResult);
+    if(res.data.searchResult=='empty'){
+      store.dispatch(changeLoad(false));
+      notify.show("Sorry, nothing found on your request!", "warning", 3000);
+    }
     for(let i = 0; i<res.data.searchResult.length; i++){
       let obj = {
         picture: '',
@@ -80,7 +83,6 @@ class App extends Component {
       books.push(obj);
     }
     this.setState({books: books});
-    console.log(this.state.books.length);
     store.dispatch({type: 'ADD_BOOKS', books: books})
   }
 
@@ -102,7 +104,7 @@ class App extends Component {
     params.set('coast2', this.state.bookCoast2);
     this.setState({params: params});
     this.setState({first: 0});
-    this.props.history.push('/');
+    this.props.history.push('/all');
     console.log('search submitted');
     store.dispatch(changeLoad(true));
     this.callApi(params, 0, this.state.last)

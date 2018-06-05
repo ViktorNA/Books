@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import store from './store.js'
 import './assets/css/All.css'
-import {v4} from 'node-uuid'
-import {changeLoad} from './actions/actionTypes'
 
 
 class All extends Component {
@@ -40,7 +38,7 @@ class All extends Component {
 
 
   render() {
-    if (!store.getState().isLoad) {
+    if ((!store.getState().isLoad)&&(!this.state.books)) {
       return (
       <div className="divAll">
         <div className="products clearfix">
@@ -60,12 +58,19 @@ class All extends Component {
       </div>
       );
     }
-    else {
+    else if(store.getState().isLoad){
       return (
         <div className="divAll">
           <div className="spinner"></div>
         </div>
       );
+    }
+    else {
+      return (
+      <div className="divAll">
+        <p>Nothing</p>
+      </div>
+    );
     }
 
   }

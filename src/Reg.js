@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import withFirebaseAuth from "react-auth-firebase";
 import firebase from "./firebase";
-import Home from "./App";
+import Home from "./All";
 import store from "./store"
-import './assets/css/Auth.css'
-
-// const email = "test@test.com";
-// const password = "password";
+import Notifications, {notify} from 'react-notify-toast'
+import './assets/css/All.css'
+import './assets/css/App.css'
 
 class Reg extends Component {
   state = {
@@ -42,68 +41,81 @@ class Reg extends Component {
       );
     }
     return (
-      <div>
-        <form onSubmit={e => e.preventDefault()}>
-          <input
-            type="text"
-            placeholder="Email"
-            onChange={e => this.setState({ email: e.target.value })}
-          />{" "}
-          <br />
+      <div className="divAll">
+        <div className="searchForm">
+                  <div>
+                    <form onSubmit={e => e.preventDefault()}>
+                      <input
+                        type="text"
+                        placeholder="Email"
+                        onChange={e => this.setState({ email: e.target.value })}
+                      />{" "}
+                      <br />
 
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={e => this.setState({ password: e.target.value })}
-          />
-          <br />
-          {!user && (
-            <button
-              type="submit"
-              onClick={() => signInWithEmail(email, password)}
-            >
-              SignIn
-            </button>
-          )}
-        </form>
-        <form onSubmit={e => e.preventDefault()}>
-          <input
-            type="text"
-            placeholder="Email"
-            onChange={e =>
-              this.setState({
-                email: e.target.value
-              })
-            }
-            value={email}
-          />{" "}
-          <br />
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={e => this.setState({ password: e.target.value })}
-            value={password}
-          />{" "}
-          <br />
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={e => this.setState({ reppassword: e.target.value })}
-            value={this.state.reppassword}
-          />{" "}
-          <br />
-          <button
-            type="submit"
-            onClick={() => signUpWithEmail(email, password)}>
-            SignUp
-          </button>
-        </form>
-        <br />
-        <button onClick={signInWithGoogle}>Signin with Google</button> <br />
-        <br />
-        <button onClick={signInWithGithub}>Signin with Github</button> <br />
-        <button onClick={signInWithTwitter}>Signin with Twitter</button> <br />
-      </div>
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        onChange={e => this.setState({ password: e.target.value })}
+                      />
+                      <br />
+                      {!user && (
+                        <button className="button"
+                          type="submit"
+                          onClick={() => signInWithEmail(email, password)}
+                        >
+                          SignIn
+                        </button>
+                      )}
+                    </form>
+                    <form onSubmit={e => e.preventDefault()}>
+                      <input
+                        type="text"
+                        placeholder="Email"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                        title="test@email.com"
+                        onChange={e =>
+                          this.setState({
+                            email: e.target.value
+                          })
+                        }
+                        value={email}
+                      />{" "}
+                      <br />
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        pattern=".{8,}"
+                        title="8 or more characters"
+                        onChange={e => this.setState({ password: e.target.value })}
+                        value={password}
+                      />{" "}
+                      <br />
+                      <input
+                        type="password"
+                        placeholder="Repeat password"
+                        onChange={e => this.setState({ reppassword: e.target.value })}
+                        value={this.state.reppassword}
+                      />{" "}
+                      <br />
+                        <button className="button"
+                          type="submit"
+                          onClick={() => {
+                            if(this.state.password===this.state.reppassword)
+                              signUpWithEmail(email, password)
+                            else
+                              notify.show("Passwords must match!", "warning", 3000)}}>
+                          SignUp
+                        </button>
+                    </form>
+                    <br />
+                    <form>
+                      <button className="button" onClick={signInWithGoogle}>Signin with Google</button> <br />
+                      <button className="button" onClick={signInWithGithub}>Signin with Github</button> <br />
+                      <button className="button" onClick={signInWithTwitter}>Signin with Twitter</button> <br />
+                    </form>
+                  </div>
+            </div>
+        </div>
     );
   }
 }
