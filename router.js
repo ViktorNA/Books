@@ -58,19 +58,36 @@ function searchRequestConstr(req) {
 
 	function getValidResponse(searchResult) {
 			let obj ={};
-			obj.author = searchResult.author._text;
-			obj.description = searchResult.description._text;
+			if(searchResult.author)
+				obj.author = searchResult.author._text;
+
+			console.log(1);
+			if(searchResult.description)
+				obj.description = searchResult.description._text;
+
+			console.log(2);
 			if(Array.isArray(searchResult.picture)){
 				obj.picture = searchResult.picture[0]._text;
 			}
 			else{
 					obj.picture = searchResult.picture._text;
 				}
-			obj.isbn = searchResult.ISBN._text;
-			obj.lang = searchResult.language._text;
-			obj.price = searchResult.price._text;
-			obj.year = searchResult.year._text;
-			obj.name = searchResult.name._text;
+			console.log(3);
+			if(searchResult.ISBN)
+				obj.isbn = searchResult.ISBN._text;
+			console.log(4);
+			if(searchResult.language)
+				obj.lang = searchResult.language._text;
+			console.log(5);
+			if(searchResult.price)
+				obj.price = searchResult.price._text;
+				console.log(6);
+			if(searchResult.year)
+				obj.year = searchResult.year._text;
+				console.log(7);
+			if(searchResult.name)
+				obj.name = searchResult.name._text;
+				console.log(8);
 			obj.id = searchResult._id;
 			if (searchResult.store._text=="true") {
 				obj.store = true;
