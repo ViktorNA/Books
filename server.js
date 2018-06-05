@@ -14,7 +14,7 @@ app.use(session({secret: 'abc'}));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var routes = require('./router.js');
+var routes = require('./router.js')();
 app.use('/', routes);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
