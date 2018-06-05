@@ -48,6 +48,7 @@ class One extends Component {
   addToCart(){
     if(!this.state.oneBook.store){
       let book ={
+        picture: this.state.oneBook.picture,
         id: this.state.oneBook.id,
         name: this.state.oneBook.name,
         author: this.state.oneBook.author,

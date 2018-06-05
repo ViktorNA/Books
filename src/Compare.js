@@ -113,11 +113,10 @@ class Compare extends Component {
                   <p>{book.item.bookName} - {book.item.author}</p>
                 </div>
                   <div className="product-photo">
-                    <img className="Left" alt="../../alt.png" src={book.item.picture} />
+                    <img className="Left" alt="No Image" onClick={()=> this.props.history.push("/one/" + book.item.id)} src={book.item.picture} />
                   </div>
                   <p className="CompareText"><span>Price:</span> {this.comparePrices(book)}</p>
                   <p className="CompareText"><span>Year:</span> {this.compareYear(book)}</p>
-                  <button  id={book.item.id} key={book.item.id} onClick={()=>this.showOneBook(book.item.id)} className="button zoom"><span>More</span></button>
                   <button className="button zoom delete" id={book.numb} onClick={()=>this.deleteItem(book.numb)}><span>Delete</span></button>
 
                   </div>

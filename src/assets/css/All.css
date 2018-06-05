@@ -63,7 +63,7 @@
 	left: 0;
 	right: 0;
 	max-width: 400px;
-	height: 100%;
+	width: 100%;
 	margin: auto;
 	transition: transform .4s ease-out;
 }
@@ -72,13 +72,22 @@
 	transform: scale(1.1);
 }
 
+p{
+  color: black;
+}
+
 .product p {
+  transition: all 0.5s;
 	position: relative;
 	margin: 5px;
-	font-size: 1em;
+	font-size: 1.3em;
 	line-height: 1.4em;
 	height: 2.8em;
 	overflow: hidden;
+}
+
+.product:hover p{
+  color: blue;
 }
 
 .product p:after {

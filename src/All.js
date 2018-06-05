@@ -47,16 +47,14 @@ class All extends Component {
 
             {this.state.books.map(book => <div className="product-wrapper">
               <div className="product">
-              <div className="product-main">
-                <p>{book.bookName} - {book.author}</p>
-              </div>
                 <div className="product-photo">
-                  <img className="Left" alt="No image" src={book.picture} />
+                  <img className="Left" onClick={()=> this.showOneBook(book.id)} alt="No image" src={book.picture} />
                 </div>
-                  <button  id={book.id} key={v4()} onClick={()=> this.showOneBook(book.id)} className="button"><span>More</span></button>
-
+                <div className="product-main">
+                  <p>{book.bookName} - {book.author}</p>
                 </div>
-              </div>)}
+              </div>
+            </div>)}
 
         </div>
       </div>
