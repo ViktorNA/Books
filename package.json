@@ -31,7 +31,8 @@
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "webpack": "^4.10.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -59,7 +60,6 @@
     "react-test-renderer": "^16.0.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
-    "webpack": "^4.10.2",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-dev-server": "^2.8.2",
     "webpack-hot-middleware": "^2.19.1"
