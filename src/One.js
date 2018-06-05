@@ -3,7 +3,7 @@ import axios from 'axios';
 import store from './store.js'
 import "./assets/css/One.css"
 import "./assets/css/App.css"
-import { addBook, addComp, changeLoad } from './actions/actionTypes'
+import { addBook, addComp } from './actions/actionTypes'
 import Notifications, {notify} from 'react-notify-toast'
 
 class One extends Component {
@@ -48,6 +48,7 @@ class One extends Component {
   addToCart(){
     if(!this.state.oneBook.store){
       let book ={
+        picture: this.state.oneBook.picture,
         id: this.state.oneBook.id,
         name: this.state.oneBook.name,
         author: this.state.oneBook.author,
@@ -67,13 +68,7 @@ class One extends Component {
   }
 
   toCompare(){
-    if (store.getState().compare.length<1) {
-      store.dispatch(addComp(this.state.oneBook));
-    }
-    else {
-      store.dispatch(addComp(this.state.oneBook));
-      this.props.history.push("/compare");
-    }
+    store.dispatch(addComp(this.state.oneBook));
   }
 
 
@@ -85,7 +80,7 @@ class One extends Component {
         <Notifications />
         <button className="backButton" onClick={this.goback}> <span> Back</span> </button>
         <button className="button zoom buy" onClick={this.addToCart}><span>Buy</span></button>
-        <button className="button zoom" onClick={this.toCompare}><span>Compare<sup>{store.getState().compare.length}</sup></span></button>
+        <button className="button zoom" onClick={this.toCompare}><span>To compare</span></button>
         <br></br>
         <div className="image">
           <img alt='' src={this.state.oneBook.picture} />

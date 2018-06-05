@@ -108,21 +108,21 @@ class Compare extends Component {
           <div className="">
           <div className="products clearfix">
               {this.state.books.map(book => <div className="product-wrapper">
-                <div className="product">
-                <div className="product-main">
-                  <p>{book.item.bookName} - {book.item.author}</p>
+                <div  className="product">
+                    <button className="buttonDelete" id={book.numb} onClick={()=>this.deleteItem(book.numb)}><span>X</span></button>
+                    <div  onClick={()=> this.props.history.push("/one/" + book.item.id)}>
+                      <div className="product-main">
+                        <p>{book.item.name} - {book.item.author}</p>
+                      </div>
+                      <div className="product-photo">
+                          <img className="Left" alt="No Image" src={book.item.picture} />
+                      </div>
+                      <p className="CompareText"><span>Price:</span> {this.comparePrices(book)}</p>
+                      <p className="CompareText"><span>Year:</span> {this.compareYear(book)}</p>
+                    </div>
                 </div>
-                  <div className="product-photo">
-                    <img className="Left" alt="../../alt.png" src={book.item.picture} />
-                  </div>
-                  <p className="CompareText"><span>Price:</span> {this.comparePrices(book)}</p>
-                  <p className="CompareText"><span>Year:</span> {this.compareYear(book)}</p>
-                  <button  id={book.item.id} key={book.item.id} onClick={()=>this.showOneBook(book.item.id)} className="button zoom"><span>More</span></button>
-                  <button className="button zoom delete" id={book.numb} onClick={()=>this.deleteItem(book.numb)}><span>Delete</span></button>
-
-                  </div>
-                </div>)}
-              </div>
+              </div>)}
+            </div>
           </div>
         </div>
       );

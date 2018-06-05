@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import store from './store.js'
-import './assets/css/One.css'
+import './assets/css/All.css'
 import Notifications, {notify} from 'react-notify-toast'
 
 class Cart extends Component {
@@ -61,13 +61,26 @@ this.setState({
   showCart(){
     if(this.state.cart.length)
       return (
-        this.state.cart.map(book => <div className="item">
-            {console.log(book)}
-            <p> {book.item.name} </p>
-            <p> {book.item.author} </p>
-            <p> {book.item.price} </p>
-            <button className="button zoom delete" key={book.numb} onClick={()=>this.deleteItem(book.numb)}><span>Delete</span></button>
-            </div>
+        this.state.cart.map(book => <div className="product-wrapper">
+            <div className="product">
+                <button className="buttonDelete" key={book.numb} onClick={()=>this.deleteItem(book.numb)}><span>X</span></button>
+                  <div  onClick={()=> this.props.history.push("/one/" + book.item.id)}>
+                    <div className="product-main">
+                      <p>{book.item.name} - {book.item.author}</p>
+                    </div>
+                    <div className="product-photo">
+                      <img className="Left"  alt="No image" src={book.item.picture} />
+                    </div>
+                    <div className="product-main">
+                      <p> {book.item.name} </p>
+                      <p> {book.item.author} </p>
+                      <p> {book.item.price} </p>
+                    </div>
+                  </div>
+              </div>
+
+
+        </div>
       )
     )
     return (
@@ -100,12 +113,14 @@ this.setState({
 
   render() {
     return (
-      <div className="oneBook">
+      <div className="divAll">
         <Notifications />
         <button className="backButton" onClick={this.props.history.goBack} ><span>Back</span></button>
-        {this.showCart()}
         <button className="button zoom" onClick={this.clearCart} ><span>Clear</span></button>
         <button className="button zoom" onClick={this.buyCart} ><span>Buy</span></button>
+        <div className="products clearfix">
+          {this.showCart()}
+        </div>
       </div>
 
     )

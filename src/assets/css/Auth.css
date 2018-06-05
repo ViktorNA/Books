@@ -2,10 +2,10 @@
   display: inline-block;
   background-color: #222;
   width:100%;
-  min-width: 400px;
-  min-height: 140px;
+  min-width: 480px;
   border: 3px solid #f4511e;
   margin: 0px;
+
 }
 
 .warning{
@@ -63,22 +63,21 @@
 .cart{
   float: right;
   display: inline-block;
-  background-color: white;
-  border: 2px solid #f4511e;
-  color: black;
+  background-color: #222;
+  border: none;
+  color: #cccccc;
   text-align: left;
   font-size: 28px;
-  width: 250px;
-  height: 68px;
+  width: 33.333333%;
+  min-height: 60px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
   vertical-align: middle;
   text-align: center;
   transition: 0.5s;
 }
 .cart:hover{
-  background-color: #f4511e;
+  background-color: #3a3a3a;
   color: white;
 }
 
@@ -112,4 +111,73 @@ input.zoom:focus{
 
 .log{
   margin-left: 5px;
+}
+
+.authB{
+  width: 100%;
+  border-top: 1px solid #888888;
+}
+
+.authU{
+  display: inline-block;
+  height: auto;
+  width: 100%;
+}
+
+.logoButton{
+  width: 33.3333%;
+  float: left;
+  display: inline-block;
+  background-color: #222;
+  border: none;
+  color: white;
+  font-size: 35px;
+  min-height: 60px;
+  transition: all 0.5s;
+  cursor: pointer;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: bold;
+}
+
+.randBook{
+  width:  35%;
+  float: right;
+  display: inline-block;
+  background-color: #222;
+  border: none;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.randBook .description{
+  transition: all 0.5s;
+  font-size: 1em;
+	line-height: 1.2em;
+	height: 3.6em;
+  overflow: hidden;
+  color: #cccccc;
+  margin-top: 0em;
+}
+
+.randBook .text{
+  margin-bottom: 0em;
+  font-size: 0.9em;
+  line-height: 1.1em;
+  color: #999999;
+  overflow: hidden;
+}
+
+.randBook:hover .description{
+  color: white;
+}
+
+@media only screen and (max-width: 500px) {
+	.randBook {
+		width: 0%;
+	}
+
+  .logoButton{
+    width: 50%;
+  }
 }
