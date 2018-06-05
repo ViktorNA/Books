@@ -68,7 +68,7 @@ class All extends Component {
     else {
       return (
       <div className="divAll">
-        <p>Nothing</p>
+        <h1>Hello, anonimus!</h1>
       </div>
     );
     }
