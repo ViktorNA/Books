@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import store from './store.js'
 import './assets/css/All.css'
 
@@ -44,7 +43,7 @@ class All extends Component {
       <div className="divAll">
         <div className="products clearfix">
 
-            {this.state.books.map(book => <div onClick={()=> this.showOneBook(book.id)} className="product-wrapper">
+            {this.state.books.map(book => <div onClick={()=> this.props.history.push("/one/" + book.id)} className="product-wrapper">
               <div className="product">
                 <div className="product-photo">
                   <img className="Left"  alt="No image" src={book.picture} />

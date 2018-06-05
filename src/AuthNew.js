@@ -110,8 +110,10 @@ class AuthNew extends Component {
       return(
         <div className="Auth">
           <div className="authU">
-            <button className="logoButton" onClick={() => this.props.history.push("/reg")}><span>Books</span></button>
-            <div onClick={() => this.props.history.push("/one/" + this.state.randBook.id)} className="randBook">
+            <button className="logoButton" onClick={() => this.props.history.push("/All")}><span>Books</span></button>
+            <div onClick={() => {
+              this.props.history.push("/")
+              this.props.history.push("/one/" + this.state.randBook.id)}} className="randBook">
               <p className="text">Random book:</p>
               <p className="description">{this.state.randBook.description}</p>
             </div>
