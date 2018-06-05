@@ -7,7 +7,7 @@ const session = require('express-session')
 const router = express.Router();
 const port = process.env.PORT || 5000;
 const compression = require("compression");
-
+var expressStaticGzip = require("express-static-gzip");
 app.use('/', expressStaticGzip(path.join(__dirname, 'dist'), {
   enableBrotli: true
 }))
