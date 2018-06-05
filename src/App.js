@@ -35,7 +35,6 @@ class App extends Component {
     this.searchClear = this.searchClear.bind(this);
     this.searchNext = this.searchNext.bind(this);
     this.searchPrev = this.searchPrev.bind(this);
-    this.showOneBook = this.showOneBook.bind(this);
   }
 
   componentDidMount() {
@@ -159,52 +158,6 @@ class App extends Component {
         alert('end');
       }
   }
-
-  showOneBook(event){
-    console.log(event.target.id);
-    const params = new URLSearchParams();
-    params.set('id', event.target.id);
-    this.setState({showOne: true})
-    axios.post('/one', params)
-    .then(res => {
-      console.log(res);
-      let obj ={
-        picture: '',
-        description: '',
-        author: '',
-        year: '',
-        price: '',
-        bookName: '',
-        id: '',
-        isbn: '',
-        lang: '',
-      };
-
-      obj.author = res.data.searchResult.author._text;
-      obj.description = res.data.searchResult.description._text;
-      if(Array.isArray(res.data.searchResult.picture)){
-        obj.picture = res.data.searchResult.picture[0]._text;
-      }
-      else{
-          obj.picture = res.data.searchResult.picture._text;
-        }
-      obj.isbn = res.data.searchResult.ISBN._text;
-      obj.lang = res.data.searchResult.language._text;
-      obj.price = res.data.searchResult.price._text;
-      obj.year = res.data.searchResult.year._text;
-      obj.name = res.data.searchResult.name._text;
-      obj.id = res.data.searchResult._id;
-      store.dispatch({
-        type: 'ADD_BOOK',
-        book: obj
-      })
-      this.props.history.push("/one");
-    })
-
-  }
-
-
-
 
   render() {
       return (
