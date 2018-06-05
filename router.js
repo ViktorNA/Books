@@ -116,14 +116,13 @@ module.exports = function(){
 	  }
 	});
 
-	router.get('/news', function (req, res) {
-	  MongoClient.connect(url, function(err, client){
+	router.get('/rand', function (req, res) {
+	  MongoClient.connect(url, { useNewUrlParser: true }, function(err, client){
 	        var db = client.db('books2db');
-	        db.collection('books').find().skip(Math.random()*10000+2
-	      ).limit(5).toArray()
+	        db.collection('books').find().skip(Math.random()*10000+2 ).limit(1).toArray()
 	        .then(response => {
 	           if(response.length>0){
-	           res.send({searchResult: response});
+	           res.send({book: response[0]});
 	         }
 	         else{
 	           // res.render('news', {data: badres});
