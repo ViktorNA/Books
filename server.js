@@ -2,7 +2,6 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const passport = require('passport')
 const session = require('express-session')
 const router = express.Router();
 const port = process.env.PORT || 5000;
@@ -15,7 +14,7 @@ app.use(session({secret: 'abc'}));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var routes = require('./router.js')(passport);
+var routes = require('./router.js');
 app.use('/', routes);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
