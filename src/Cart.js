@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import store from './store.js'
-import './assets/css/One.css'
+import './assets/css/All.css'
 import Notifications, {notify} from 'react-notify-toast'
 
 class Cart extends Component {
@@ -61,7 +61,7 @@ this.setState({
   showCart(){
     if(this.state.cart.length)
       return (
-        this.state.cart.map(book => <div className="item">
+        this.state.cart.map(book => <div className="product-wrapper">
             {console.log(book)}
             <p> {book.item.name} </p>
             <p> {book.item.author} </p>
@@ -100,10 +100,12 @@ this.setState({
 
   render() {
     return (
-      <div className="oneBook">
+      <div className="divAll">
         <Notifications />
         <button className="backButton" onClick={this.props.history.goBack} ><span>Back</span></button>
-        {this.showCart()}
+        <div className="products clearfix">
+          {this.showCart()}
+        </div>
         <button className="button zoom" onClick={this.clearCart} ><span>Clear</span></button>
         <button className="button zoom" onClick={this.buyCart} ><span>Buy</span></button>
       </div>
