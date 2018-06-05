@@ -54,9 +54,7 @@ class One extends Component {
         price: this.state.oneBook.price
       }
 
-      store.dispatch(addBook(book))
-      console.log('cart one');
-      console.log(store.getState().cart);
+      store.dispatch(addBook(book));
       notify.show("The book has been added!", "success", 3000)
     }
     else {
@@ -76,7 +74,6 @@ class One extends Component {
       store.dispatch(addComp(this.state.oneBook));
       this.props.history.push("/compare");
     }
-    console.log(store.getState().compare);
   }
 
 

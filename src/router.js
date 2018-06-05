@@ -3,7 +3,6 @@ import { Route} from 'react-router';
 import { HashRouter, BrowserRouter, Switch } from 'react-router-dom'
 import './assets/css/index.css'
 import App from './App';
-import Auth from './Auth';
 import One from './One';
 import All from './All';
 import Cart from './Cart'

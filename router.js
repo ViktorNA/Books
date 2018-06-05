@@ -8,16 +8,6 @@ var searchres;
 const ObjectId = require('mongodb').ObjectID
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-var isAuthenticated = function (req, res, next) {
-	// if user is authenticated in the session, call the next() to call the next request handler
-	// Passport adds this method to request object. A middleware is allowed to add properties to
-	// request and response object
-	if (req.isAuthenticated())
-		return next();
-	// if the user is not authenticated then redirect him to the login page
-	console.log('error');
-	res.redirect('/error');
-}
 
 var badres = [{
 	  description: {
@@ -90,57 +80,11 @@ function searchRequestConstr(req) {
 			return obj;
 }
 
-module.exports = function(passport){
+module.exports = function(){
 	router.get('/', function(req, res) {
     	// Display the Login page with any flash message, if any
 		res.sendfile('/dist/index.html');
 	});
-
-
-	router.get('/login', function(req, res) {
-    	// Display the Login page with any flash message, if any
-		res.sendfile('auth.html');
-	});
-
-	/* Handle Login POST */
-	router.post('/login', passport.authenticate('login', {
-		successRedirect: '/home',
-		failureRedirect: '/error',
-		failureFlash : true
-	}, ));
-
-	router.get('/login/facebook',
-		passport.authenticate('facebook', { scope : 'email' }
-	));
-
-	// handle the callback after facebook has authenticated the user
-	router.get('/login/facebook/callback',
-		passport.authenticate('facebook', {
-			successRedirect : '/home',
-			failureRedirect : '/'
-		})
-	);
-
-	/* Handle Registration POST */
-	router.post('/signup', passport.authenticate('signup', {
-		successRedirect: '/home',
-		failureRedirect: '/error',
-		failureFlash : true
-	}));
-
-	/* GET Home Page */
-	router.get('/home', isAuthenticated, function(req, res){
-		console.log('home');
-		res.send({answer: true})
-	});
-
-	/* Handle Logout */
-	router.get('/signout', function(req, res) {
-		req.logout();
-		res.redirect('/');
-	});
-
-
 
 	router.post('/news', urlencodedParser, function (req, res) {
 		console.log('post');

@@ -24,9 +24,7 @@ class Cart extends Component {
 
 
   componentDidMount(){
-    console.log('mount');
     this.unsubscribe = store.subscribe(() => {
-    console.log(store.getState());
     this.setState({
       cart: store.getState().cart
     });
@@ -34,9 +32,6 @@ class Cart extends Component {
 this.setState({
   cart: store.getState().cart
 })
-console.log('aftermount');
-console.log(store.getState());
-console.log(this.state.cart);
 
   }
 
@@ -44,8 +39,6 @@ console.log(this.state.cart);
     this.unsubscribe();
   }
 
-  updateAuth(){
-  }
 
   deleteItem(id){
     let i =0;

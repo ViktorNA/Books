@@ -33,8 +33,6 @@ class App extends Component {
     this.searchChanged = this.searchChanged.bind(this);
     this.searchSubmitted = this.searchSubmitted.bind(this);
     this.searchClear = this.searchClear.bind(this);
-    this.searchNext = this.searchNext.bind(this);
-    this.searchPrev = this.searchPrev.bind(this);
   }
 
   componentDidMount() {
@@ -125,38 +123,6 @@ class App extends Component {
       bookCoast1:'',
       bookCoast2:''
     });
-  }
-
-  searchNext(){
-    let nextFirst = this.state.first;
-    nextFirst += 5;
-    console.log(nextFirst + 'vs' + this.state.bookCount);
-    if(+ nextFirst < +this.state.bookCount){
-
-      console.log('next' + nextFirst);
-      this.setState({first: nextFirst});
-      console.log('first' + this.state.first);
-
-      this.callApi(this.state.params, nextFirst, 5);}
-      else {
-        alert('end');
-      }
-  }
-
-  searchPrev(){
-    let nextFirst = this.state.first;
-
-    console.log(nextFirst + 'vs' + this.state.bookCount);
-    if(+ nextFirst > 0){
-      nextFirst -= 5;
-      console.log('next' + nextFirst);
-      this.setState({first: nextFirst});
-      console.log('first' + this.state.first);
-
-      this.callApi(this.state.params, nextFirst, 5);}
-      else {
-        alert('end');
-      }
   }
 
   render() {

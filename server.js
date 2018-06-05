@@ -14,26 +14,19 @@ function shouldCompress(req, res) {
 }
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(compression({
-  level: 2,               // set compression level from 1 to 9 (6 by default)
+  level: 9,               // set compression level from 1 to 9 (6 by default)
   filter: shouldCompress, // set predicate to determine whether to compress
 }));
 
-app.get('/', function(){
-	res.sendfile("./dist/index.html")
-}
-)
+app.get('*bundle.js', function (req, res, next) {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
 
 app.use(session({secret: 'abc'}));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-var initPassport = require('./passport/init');
-initPassport(passport);
 
 var routes = require('./router.js')(passport);
 app.use('/', routes);

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import withFirebaseAuth from "react-auth-firebase";
 import firebase from "./firebase";
-import Home from "./Home";
+import Home from "./App";
 import store from "./store"
 import './assets/css/Auth.css'
 

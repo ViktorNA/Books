@@ -35,4 +35,11 @@ config.plugins.push(
     })
 )
 
+config.plugins.push(
+  new webpack.optimize.CommonsChunkPlugin({
+        children: true,
+        async: true,
+    })
+)
+
 module.exports = config;
