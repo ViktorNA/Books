@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import store from './store.js'
 import './assets/css/All.css'
 
@@ -72,7 +73,8 @@ class All extends Component {
       </div>
     );
     }
-}
+
+  }
 }
 
 export default All;
