@@ -38,7 +38,7 @@ class All extends Component {
 
 
   render() {
-    if ((!store.getState().isLoad)&&(!this.state.books)) {
+    if (!store.getState().isLoad) {
       return (
       <div className="divAll">
         <div className="products clearfix">
@@ -72,11 +72,7 @@ class All extends Component {
       </div>
     );
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1525dd7e572965f0c6a3608276e3e127f78f9c42
-  }
+}
 }
 
 export default All;
