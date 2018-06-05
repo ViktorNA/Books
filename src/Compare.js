@@ -105,7 +105,6 @@ class Compare extends Component {
           </div>
           <br></br>
           <br></br>
-          <div className="">
           <div className="products clearfix">
               {this.state.books.map(book => <div className="product-wrapper">
                 <div  className="product">
@@ -122,7 +121,6 @@ class Compare extends Component {
                     </div>
                 </div>
               </div>)}
-            </div>
           </div>
         </div>
       );
